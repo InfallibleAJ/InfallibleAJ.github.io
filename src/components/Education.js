@@ -25,7 +25,7 @@ const Education = () => {
       <div className="container">
         <h2 className="section-title">Education & Learning</h2>
         
-        <div style={styles.content}>
+        <div className="content" style={styles.content}>
           <div style={styles.educationSection}>
             <h3 style={styles.subtitle}>Education</h3>
             <div style={styles.educationList}>

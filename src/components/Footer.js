@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer style={styles.footer}>
       <div className="container" style={styles.container}>
-        <div style={styles.content}>
+        <div className="content" style={styles.content}>
           <div style={styles.brand}>
             <a href="#home" style={styles.logo}>
               <span style={{ color: '#2563eb' }}>{"<"}</span>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div style={styles.bottom}>
+        <div className="bottom" style={styles.bottom}>
           <p style={styles.copyright}>
             © {currentYear} Ajeet Kumar Bind. All rights reserved.
           </p>

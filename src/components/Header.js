@@ -1,8 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/main.scss';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef(null);
+
+  // Close menu when clicking outside and prevent body scroll when menu is open
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target) && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -17,18 +39,19 @@ const Header = () => {
   return (
     <header className="header" style={styles.header}>
       <div className="container" style={styles.container}>
-        <a href="#home" style={styles.logo}>
+        <a href="#home" className="logo" style={styles.logo}>
           <span style={{ color: '#2563eb' }}>{"<"}</span>
           Ajeet Kumar Bind
           <span style={{ color: '#2563eb' }}>{"/>"}</span>
         </a>
         
-        <nav style={styles.nav}>
+        <nav style={styles.nav} ref={navRef}>
           <button 
             className="menu-toggle" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={styles.menuToggle}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             <i className={`fas fa-${isMenuOpen ? 'times' : 'bars'}`}></i>
           </button>
@@ -84,7 +107,9 @@ const styles = {
     border: 'none',
     fontSize: '1.5rem',
     color: '#2563eb',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    padding: '0.5rem',
+    zIndex: 1001
   },
   navList: {
     display: 'flex',

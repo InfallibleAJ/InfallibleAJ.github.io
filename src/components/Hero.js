@@ -6,7 +6,7 @@ const Hero = () => {
     <section id="home" className="hero" style={styles.hero}>
       <div className="container" style={styles.container}>
         
-        <div style={styles.content}>
+        <div className="content" style={styles.content}>
           <h1 style={styles.title}>
             Hi, I'm <span style={{ color: '#2563eb' }}>Ajeet Kumar Bind</span>
           </h1>
@@ -19,7 +19,7 @@ const Hero = () => {
             Passionate about developing clean, reusable UI components and optimizing 
             performance to deliver exceptional user experiences.
           </p>
-          <div style={styles.buttonGroup}>
+          <div className="buttonGroup" style={styles.buttonGroup}>
             <a href="#contact" className="btn" style={styles.btn}>
               Get In Touch
             </a>
@@ -34,11 +34,11 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div style={styles.imageContainer}>
-          <div style={styles.imagePlaceholder}>
+        <div className="imageContainer" style={styles.imageContainer}>
+          <div className="imagePlaceholder" style={styles.imagePlaceholder}>
             <img 
               src={profilePic}
-              alt="Ajeet Kumar Bind 123" 
+              alt="Ajeet Kumar Bind" 
               style={styles.profileImage}
             />
           </div>
@@ -63,7 +63,11 @@ const styles = {
     gap: '3rem',
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '0 2rem'
+    padding: '0 2rem',
+    '@media (max-width: 992px)': {
+      flexDirection: 'column',
+      textAlign: 'center'
+    }
   },
   content: {
     flex: 1

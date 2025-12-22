@@ -37,7 +37,7 @@ const Contact = () => {
       <div className="container">
         <h2 className="section-title">Let's Connect</h2>
         
-        <div style={styles.content}>
+        <div className="content" style={styles.content}>
           <div style={styles.intro}>
             <h3 style={styles.subtitle}>Get In Touch</h3>
             <p style={styles.description}>
@@ -50,7 +50,7 @@ const Contact = () => {
               I typically respond within 24 hours.
             </p>
             
-            <div style={styles.ctaContainer}>
+            <div className="ctaContainer" style={styles.ctaContainer}>
               <a 
                 href="mailto:ajshubh30@gmail.com" 
                 style={styles.primaryCta}
@@ -93,7 +93,7 @@ const Contact = () => {
           </div>
         </div>
         
-        <div style={styles.footerNote}>
+        <div className="footerNote" style={styles.footerNote}>
           <p style={styles.footerText}>
             <i className="fas fa-clock"></i> Response time: Usually within 24 hours
           </p>

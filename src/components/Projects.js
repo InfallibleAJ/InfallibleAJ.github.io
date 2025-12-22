@@ -40,9 +40,9 @@ const Projects = () => {
       <div className="container">
         <h2 className="section-title">Featured Projects</h2>
         
-        <div style={styles.projectsGrid}>
+        <div className="projectsGrid" style={styles.projectsGrid}>
           {projects.map((project) => (
-            <div key={project.id} style={styles.projectCard}>
+            <div key={project.id} className="projectCard" style={styles.projectCard}>
               <div style={styles.projectHeader}>
                 <h3 style={styles.projectTitle}>{project.title}</h3>
                 {project.featured && (

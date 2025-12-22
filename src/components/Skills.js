@@ -20,8 +20,8 @@ const Skills = () => {
         { name: 'RESTful APIs', level: 88 },
         { name: 'Jest & Testing Library', level: 82 },
         { name: 'Webpack', level: 78 },
-        { name: 'npm/yarn', level: 85 },
-        { name: 'VS Code', level: 92 }
+        { name: 'npm / yarn', level: 85 },
+        { name: 'Cursor / VS Code', level: 92 }
       ]
     },
     {
@@ -42,9 +42,9 @@ const Skills = () => {
       <div className="container">
         <h2 className="section-title">Technical Expertise</h2>
         
-        <div style={styles.categoriesGrid}>
+        <div className="categoriesGrid" style={styles.categoriesGrid}>
           {skillCategories.map((category) => (
-            <div key={category.category} style={styles.categoryCard}>
+            <div key={category.category} className="categoryCard" style={styles.categoryCard}>
               <h3 style={styles.categoryTitle}>{category.category}</h3>
               <div style={styles.skillsList}>
                 {category.skills.map((skill) => (

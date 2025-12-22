@@ -6,11 +6,22 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $font-secondary;
   color: $text-color;
   line-height: 1.6;
   background-color: $light-color;
+  overflow-x: hidden;
 }
 
 h1,
@@ -85,7 +96,300 @@ h6 {
   }
 }
 
-// Responsive
+// Header Responsive Styles
+.header {
+  @media (max-width: $breakpoint-md) {
+    height: 70px;
+  }
+
+  .container {
+    @media (max-width: $breakpoint-md) {
+      padding: 1rem;
+    }
+  }
+
+  .logo {
+    @media (max-width: $breakpoint-md) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
+  }
+
+  .menu-toggle {
+    @media (max-width: $breakpoint-md) {
+      display: block !important;
+    }
+  }
+
+  .nav-list {
+    @media (max-width: $breakpoint-md) {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      flex-direction: column;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      gap: 0;
+      z-index: 999;
+      overflow-y: auto;
+
+      &.show {
+        transform: translateX(0);
+      }
+
+      li {
+        width: 100%;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0.75rem 0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// Hero Section Responsive
+.hero {
+  @media (max-width: $breakpoint-lg) {
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+
+    .content {
+      order: 2;
+    }
+
+    .imageContainer {
+      order: 1;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    min-height: auto;
+    padding: 90px 0 3rem;
+
+    .container {
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 2rem !important;
+    }
+
+    h2 {
+      font-size: 1.2rem !important;
+    }
+
+    p {
+      font-size: 1rem !important;
+    }
+
+    .imagePlaceholder {
+      width: 250px !important;
+      height: 250px !important;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    h1 {
+      font-size: 1.75rem !important;
+    }
+
+    h2 {
+      font-size: 1rem !important;
+    }
+
+    .imagePlaceholder {
+      width: 200px !important;
+      height: 200px !important;
+      max-width: 100%;
+    }
+
+    .buttonGroup {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// About Section Responsive
+#about {
+  .content {
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr !important;
+      gap: 2rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      gap: 1.5rem;
+    }
+  }
+
+  .details {
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  .skillsPreview {
+    @media (max-width: $breakpoint-md) {
+      padding: 1.5rem;
+    }
+  }
+}
+
+// Skills Section Responsive
+#skills {
+  .categoriesGrid {
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem;
+    }
+  }
+
+  .categoryCard {
+    @media (max-width: $breakpoint-md) {
+      padding: 1.5rem;
+    }
+  }
+}
+
+// Experience Section Responsive
+#experience {
+  .timeline {
+    @media (max-width: $breakpoint-md) {
+      max-width: 100%;
+    }
+  }
+
+  .timelineItem {
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .timelineMarker {
+    @media (max-width: $breakpoint-md) {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+
+  .timelineLine {
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .timelineMeta {
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
+// Projects Section Responsive
+#projects {
+  .projectsGrid {
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem;
+    }
+  }
+
+  .projectCard {
+    @media (max-width: $breakpoint-md) {
+      padding: 1.5rem;
+    }
+  }
+}
+
+// Education Section Responsive
+#education {
+  .content {
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr !important;
+      gap: 2rem;
+    }
+  }
+}
+
+// Contact Section Responsive
+#contact {
+  .content {
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr !important;
+      gap: 2rem;
+    }
+  }
+
+  .ctaContainer {
+    @media (max-width: $breakpoint-sm) {
+      a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .footerNote {
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+// Footer Responsive
+footer {
+  .content {
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr !important;
+      gap: 2rem;
+      text-align: center;
+    }
+  }
+
+  .bottom {
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+// General Responsive Styles
 @media (max-width: $breakpoint-md) {
   .section {
     padding: $spacing-lg 0;
@@ -97,5 +401,90 @@ h6 {
 
   .container {
     padding: 0 $spacing-sm;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .section {
+    padding: $spacing-md 0;
+
+    &-title {
+      font-size: 1.75rem;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+// Tablet specific styles
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .hero {
+    .container {
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem !important;
+    }
+
+    h2 {
+      font-size: 1.3rem !important;
+    }
+  }
+
+  #about .content,
+  #education .content,
+  #contact .content {
+    gap: 2.5rem;
+  }
+}
+
+// Additional mobile optimizations
+@media (max-width: $breakpoint-sm) {
+  .hero {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+
+  #about,
+  #skills,
+  #experience,
+  #projects,
+  #education,
+  #contact {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+
+  footer {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+}
+
+// Large screens optimization
+@media (min-width: $breakpoint-xl) {
+  .container {
+    max-width: 1400px;
   }
 }

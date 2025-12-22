@@ -6,7 +6,7 @@ const About = () => {
     <section id="about" className="section" style={styles.section}>
       <div className="container">
         <h2 className="section-title">About Me</h2>
-        <div style={styles.content}>
+        <div className="content" style={styles.content}>
           <div style={styles.text}>
             <p style={styles.paragraph}>
               I'm a Senior Front-End Developer with 4 years of professional experience 
@@ -22,7 +22,7 @@ const About = () => {
               code and staying updated with the latest frontend technologies.
             </p>
             
-            <div style={styles.details}>
+            <div className="details" style={styles.details}>
               <div style={styles.detailItem}>
                 <strong style={styles.label}>Name:</strong>
                 <span>Ajeet Kumar Bind</span>
@@ -51,7 +51,7 @@ const About = () => {
             </a>
           </div>
           
-          <div style={styles.skillsPreview}>
+          <div className="skillsPreview" style={styles.skillsPreview}>
             <h3 style={styles.skillsTitle}>Core Technologies</h3>
             <div style={styles.skillsGrid}>
               {['React.js', 'TypeScript', 'JavaScript', 'HTML5/CSS3', 'Tailwind CSS', 'Redux', 'Git', 'REST APIs', 'Jest', 'Webpack'].map((skill) => (

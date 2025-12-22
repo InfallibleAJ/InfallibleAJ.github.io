@@ -51,10 +51,10 @@ const Experience = () => {
       <div className="container">
         <h2 className="section-title">Professional Experience</h2>
         
-        <div style={styles.timeline}>
+        <div className="timeline" style={styles.timeline}>
           {experiences.map((exp, index) => (
-            <div key={exp.id} style={styles.timelineItem}>
-              <div style={styles.timelineMarker}>
+            <div key={exp.id} className="timelineItem" style={styles.timelineItem}>
+              <div className="timelineMarker" style={styles.timelineMarker}>
                 <div style={styles.markerCircle}></div>
                 {index !== experiences.length - 1 && <div style={styles.timelineLine}></div>}
               </div>
@@ -65,7 +65,7 @@ const Experience = () => {
                   <span style={styles.company}>{exp.company}</span>
                 </div>
                 
-                <div style={styles.timelineMeta}>
+                <div className="timelineMeta" style={styles.timelineMeta}>
                   <span style={styles.location}>
                     <i className="fas fa-map-marker-alt"></i> {exp.location}
                   </span>
