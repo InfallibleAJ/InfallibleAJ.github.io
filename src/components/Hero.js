@@ -14,7 +14,7 @@ const Hero = () => {
             Senior Frontend Developer • React & TypeScript Specialist
           </h2>
           <p style={styles.description}>
-            Front-End Developer with 4 years of experience building responsive, scalable, 
+            Front-End Developer with 5 years of experience building responsive, scalable, 
             and high-performance web applications using React.js and TypeScript. 
             Passionate about developing clean, reusable UI components and optimizing 
             performance to deliver exceptional user experiences.
