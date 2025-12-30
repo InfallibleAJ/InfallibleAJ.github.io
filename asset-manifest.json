@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.478b0e56.css",
-    "main.js": "/static/js/main.9fa01edc.js",
+    "main.js": "/static/js/main.ea39a6bd.js",
     "static/media/Ajeet_Kumar_FrontEnd.pdf": "/static/media/Ajeet_Kumar_FrontEnd.9d55218d6ca9a611bab3.pdf",
     "static/media/Ajeet_Linkedin_Profile.jpg": "/static/media/Ajeet_Linkedin_Profile.d312546fc16ed5b5dc4a.jpg",
     "index.html": "/index.html",
     "main.478b0e56.css.map": "/static/css/main.478b0e56.css.map",
-    "main.9fa01edc.js.map": "/static/js/main.9fa01edc.js.map"
+    "main.ea39a6bd.js.map": "/static/js/main.ea39a6bd.js.map"
   },
   "entrypoints": [
     "static/css/main.478b0e56.css",
-    "static/js/main.9fa01edc.js"
+    "static/js/main.ea39a6bd.js"
   ]
 }
