@@ -30,7 +30,7 @@ const Education = () => {
             <h3 style={styles.subtitle}>Education</h3>
             <div style={styles.educationList}>
               {education.map((edu, index) => (
-                <div key={index} style={styles.educationItem}>
+                <div key={index} className="educationItem" style={styles.educationItem}>
                   <div style={styles.educationHeader}>
                     <h4 style={styles.degree}>{edu.degree}</h4>
                     <span style={styles.institution}>{edu.institution}</span>
@@ -53,7 +53,7 @@ const Education = () => {
             <h3 style={styles.subtitle}>Continuous Learning</h3>
             <div style={styles.certificationsList}>
               {certifications.map((cert, index) => (
-                <div key={index} style={styles.certificationItem}>
+                <div key={index} className="certificationItem" style={styles.certificationItem}>
                   <div style={styles.certificationHeader}>
                     <h4 style={styles.certName}>{cert.name}</h4>
                     <span style={styles.issuer}>{cert.issuer}</span>

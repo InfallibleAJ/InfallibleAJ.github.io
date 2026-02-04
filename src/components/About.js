@@ -7,7 +7,7 @@ const About = () => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <div className="content" style={styles.content}>
-          <div style={styles.text}>
+          <div className="text" style={styles.text}>
             <p style={styles.paragraph}>
               I'm a Senior Front-End Developer with 4 years of professional experience 
               specializing in React.js and TypeScript. My passion lies in creating 

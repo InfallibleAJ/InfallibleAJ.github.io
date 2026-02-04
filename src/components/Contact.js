@@ -38,7 +38,7 @@ const Contact = () => {
         <h2 className="section-title">Let's Connect</h2>
         
         <div className="content" style={styles.content}>
-          <div style={styles.intro}>
+          <div className="intro" style={styles.intro}>
             <h3 style={styles.subtitle}>Get In Touch</h3>
             <p style={styles.description}>
               I'm currently open to new opportunities, collaborations, and interesting projects. 
@@ -68,7 +68,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div style={styles.contactCards}>
+          <div className="contactCards" style={styles.contactCards}>
             {contactInfo.map((info, index) => (
               <a 
                 key={index}

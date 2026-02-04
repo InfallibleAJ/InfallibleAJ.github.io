@@ -55,9 +55,10 @@ const Skills = () => {
                     </div>
                     <div style={styles.progressBar}>
                       <div 
+                        className="progressFill"
                         style={{
                           ...styles.progressFill,
-                          width: `${skill.level}%`,
+                          '--level': skill.level,
                           background: `linear-gradient(90deg, #2563eb, ${skill.level > 85 ? '#7c3aed' : '#3b82f6'})`
                         }}
                       ></div>

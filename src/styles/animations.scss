@@ -1,0 +1,309 @@
+// ============================================
+// Portfolio Animations — CSS-focused showcase
+// ============================================
+// (variables are in scope via main.scss import order)
+
+// Respect user motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Animation timing
+$anim-duration: 0.6s;
+$anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+$anim-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ---- Keyframes ----
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes underlineReveal {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 24px 48px rgba(37, 99, 235, 0.4);
+  }
+}
+
+@keyframes progressReveal {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes navLinkUnderline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// ---- Hero: initial load animations ----
+.hero .content > * {
+  opacity: 0;
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+.hero .content h1 {
+  animation-delay: 0.1s;
+}
+
+.hero .content h2 {
+  animation-delay: 0.2s;
+}
+
+.hero .content p {
+  animation-delay: 0.3s;
+}
+
+.hero .content .buttonGroup {
+  animation-delay: 0.45s;
+}
+
+.hero .imageContainer {
+  opacity: 0;
+  animation: scaleIn ($anim-duration + 0.1s) $anim-ease 0.2s forwards;
+}
+
+.hero .imagePlaceholder {
+  animation: float 4s ease-in-out infinite 1s, glowPulse 3s ease-in-out infinite 1.2s;
+}
+
+// ---- Section titles: animate when in view ----
+.section .section-title {
+  opacity: 0;
+}
+.section.in-view .section-title {
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+.section .section-title::after {
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+}
+.section.in-view .section-title::after {
+  animation: underlineReveal 0.5s $anim-ease 0.2s forwards;
+}
+
+// ---- Stagger children when section is in view ----
+.section.in-view .animate-stagger > * {
+  opacity: 0;
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+.section.in-view .animate-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.section.in-view .animate-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.section.in-view .animate-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.section.in-view .animate-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.section.in-view .animate-stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.section.in-view .animate-stagger > *:nth-child(6) { animation-delay: 0.3s; }
+.section.in-view .animate-stagger > *:nth-child(7) { animation-delay: 0.35s; }
+.section.in-view .animate-stagger > *:nth-child(8) { animation-delay: 0.4s; }
+.section.in-view .animate-stagger > *:nth-child(9) { animation-delay: 0.45s; }
+.section.in-view .animate-stagger > *:nth-child(10) { animation-delay: 0.5s; }
+
+// ---- Cards: slide up when in view ----
+.categoryCard,
+.projectCard {
+  opacity: 0;
+}
+.section.in-view .categoryCard,
+.section.in-view .projectCard {
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+#skills.in-view .categoryCard:nth-child(1) { animation-delay: 0.1s; }
+#skills.in-view .categoryCard:nth-child(2) { animation-delay: 0.2s; }
+#skills.in-view .categoryCard:nth-child(3) { animation-delay: 0.3s; }
+
+#projects.in-view .projectCard:nth-child(1) { animation-delay: 0.1s; }
+#projects.in-view .projectCard:nth-child(2) { animation-delay: 0.18s; }
+#projects.in-view .projectCard:nth-child(3) { animation-delay: 0.26s; }
+#projects.in-view .projectCard:nth-child(4) { animation-delay: 0.34s; }
+
+// ---- Timeline: slide in from left ----
+.timelineItem {
+  opacity: 0;
+}
+.section.in-view .timelineItem {
+  animation: slideInLeft $anim-duration $anim-ease forwards;
+}
+
+#experience.in-view .timelineItem:nth-child(1) { animation-delay: 0.1s; }
+#experience.in-view .timelineItem:nth-child(2) { animation-delay: 0.25s; }
+#experience.in-view .timelineItem:nth-child(3) { animation-delay: 0.4s; }
+
+// ---- Skill bars: fill on in-view (using --level from component) ----
+#skills .progressFill {
+  width: 0;
+  transition: width 1s $anim-ease;
+}
+#skills.in-view .progressFill {
+  width: calc(var(--level) * 1%);
+}
+
+// ---- About: content blocks ----
+#about .content > .text,
+#about .content > .skillsPreview {
+  opacity: 0;
+}
+#about.in-view .content > * {
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+#about.in-view .content > .text { animation-delay: 0.1s; }
+#about.in-view .content > .skillsPreview { animation-delay: 0.25s; }
+
+// ---- Education: stagger items ----
+.educationItem,
+.certificationItem {
+  opacity: 0;
+}
+#education.in-view .educationItem,
+#education.in-view .certificationItem {
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+#education.in-view .educationItem:nth-child(1) { animation-delay: 0.1s; }
+#education.in-view .certificationItem:nth-child(1) { animation-delay: 0.2s; }
+
+// ---- Contact: cards and intro ----
+#contact .intro,
+#contact .contactCards > a {
+  opacity: 0;
+}
+#contact.in-view .intro {
+  animation: slideInRight $anim-duration $anim-ease 0.1s forwards;
+}
+#contact.in-view .contactCards > a {
+  animation: fadeInUp $anim-duration $anim-ease forwards;
+}
+
+#contact.in-view .contactCards > a:nth-child(1) { animation-delay: 0.15s; }
+#contact.in-view .contactCards > a:nth-child(2) { animation-delay: 0.25s; }
+#contact.in-view .contactCards > a:nth-child(3) { animation-delay: 0.35s; }
+#contact.in-view .contactCards > a:nth-child(4) { animation-delay: 0.45s; }
+
+// ---- Header: scroll state ----
+.header {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.header.header--scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+// ---- Nav link hover: underline ----
+.header .nav-list a {
+  position: relative;
+}
+
+.header .nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s $anim-ease;
+}
+
+.header .nav-list a:hover::after,
+.header .nav-list a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+// ---- Button focus ring (accessibility) ----
+.btn:focus-visible,
+.header .nav-list a:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// ---- Footer: subtle fade ----
+footer .content {
+  opacity: 0;
+  animation: fadeIn 0.8s $anim-ease 0.2s forwards;
+}
